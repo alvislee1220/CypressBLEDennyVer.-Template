@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Windows",
+            "includePath": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/.vscode/.dev",
+                "C:/Keil_v5/ARM/ARMCLANG/include"
+            ],
+            "defines": [],
+            "cStandard": "c99",
+            "intelliSenseMode": "windows-clang-x64",
+            "compilerPath": "C:/Program Files/LLVM/bin/clang.exe",
+            "compilerArgs": [],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false
+            }
+        }
+    ],
+    "version": 4
+}

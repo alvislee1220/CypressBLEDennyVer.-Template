@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<component_viewer schemaVersion="0.1"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="Component_Viewer.xsd">
+
+    <component name="HinokiOrangeMCU" version="1.0.0"/>
+    <!--name and version of the component-->
+    <events>
+        <group name="HinokiOrangeMCU">
+            <component name="_" brief="_" no="0x00" prefix="_" />
+            <component name="Core" brief="Core" no="0x01" prefix="C_" />
+        </group>
+        <!-- Unknown -->
+        <event id="0x0000" level="Detail" property="_" value="Comp=%N[val1] Event=%N[val2] Object=%S[val3]" />
+        <!-- Init -->
+        <event id="0x0100" level="API" property="InitStage" value="Stage=%S[val1] Head=%S[val2] Tail=%S[val3]" />
+    </events>
+    <objects>
+    </objects>
+
+</component_viewer>

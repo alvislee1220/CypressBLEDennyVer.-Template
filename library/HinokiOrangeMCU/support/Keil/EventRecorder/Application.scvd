@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<component_viewer schemaVersion="0.1"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="Component_Viewer.xsd">
+
+    <component name="Application" version="1.0.0"/>
+    <!--name and version of the component-->
+    <events>
+        <group name="Application">
+            <!-- 0x10~0x3F available -->
+            <component name="User1" brief="User Component 1" no="0x10" prefix="U_" />
+        </group>
+        <!-- Value reference: https://www.keil.com/pack/doc/compiler/EventRecorder/html/value_output.html -->
+
+        <!-- Example -->
+        <!-- <event id="0x1000" level="API" property="User Action1" value="User Event 1" /> -->
+    </events>
+    <objects>
+    </objects>
+
+</component_viewer>

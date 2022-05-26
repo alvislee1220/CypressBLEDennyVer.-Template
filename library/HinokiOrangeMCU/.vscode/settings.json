@@ -1,0 +1,36 @@
+{
+    "doxdocgen.c.triggerSequence": "d\\",
+    "editor.formatOnSave": true,
+    "git.enabled": true,
+    "C_Cpp.clang_format_style": "file",
+    "comment-divider.mainHeaderFiller": "-",
+    "comment-divider.mainHeaderTransform": "uppercase",
+    "comment-divider.mainHeaderAlign": "left",
+    "comment-divider.mainHeaderHeight": "line",
+    "comment-divider.subheaderFiller": "-",
+    "comment-divider.subheaderAlign": "center",
+    "comment-divider.subheaderTransform": "titlecase",
+    "comment-divider.shouldLengthIncludeIndent": true,
+    "comment-divider.length": 80,
+    "comment-divider.lineFiller": "-",
+    "files.associations": {
+        "*.h": "c",
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        ".gitmodules": true,
+        ".platform": true,
+    },
+    "git.ignoreSubmodules": true,
+    "doxdocgen.generic.order": [
+        "brief",
+        "tparam",
+        "param",
+        "return",
+    ]
+}

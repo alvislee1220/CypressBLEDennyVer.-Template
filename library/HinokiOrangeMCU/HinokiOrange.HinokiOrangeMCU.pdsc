@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reference: https://www.keil.com/pack/doc/CMSIS/Pack/html/packFormat.html -->
+<package schemaVersion="1.3"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+    <vendor>HinokiOrange</vendor>
+    <name>HinokiOrangeMCU</name>
+    <description>HinokiOrange Library and Framework for MCU Development</description>
+    <url>https://github.com/HinokiOrange/HinokiOrangeMCU</url>
+
+    <repository>https://github.com/HinokiOrange/HinokiOrangeMCU</repository>
+
+    <releases>
+        <release version="1.0.0">
+            First released.
+        </release>
+    </releases>
+
+    <taxonomy>
+        <!-- <description Cclass="ECLFOS">Elytone Common Library, Framework and Operating System</description> -->
+        <!-- <description Cclass="ECLFOS Common" doc="Common/Core/requirements.txt">Common Components for ECLFOS</description> -->
+        <!-- <description Cclass="ECLFOS Configuration">Configuration for ECLFOS</description> -->
+    </taxonomy>
+
+
+
+    <!-- conditions are dependency rules that can apply to a component or an individual file -->
+    <conditions>
+        <!-- compiler -->
+        <condition id="COMPILER">
+            <description>Compiler</description>
+            <accept Tcompiler="ARMCC" Toptions="AC6"/>
+            <accept Tcompiler="ARMCC" Toptions="AC5"/>
+        </condition>
+        <!-- ARM core -->
+        <condition id="CORE">
+            <description>Cortex-M0 or Cortex-M0+</description>
+            <accept Dcore="Cortex-M0"/>
+            <accept Dcore="Cortex-M0+"/>
+        </condition>
+        <!-- base reqiurement -->
+        <condition id="BASE">
+            <require condition="COMPILER" />
+            <require condition="CORE" />
+        </condition>
+        <!-- event recorder -->
+        <condition id="EVTREC">
+            <require Cclass="Compiler" Cgroup="Event Recorder" />
+        </condition>
+        <!-- device -->
+        <condition id="STM32G0">
+            <require Dname="STM32G0*" />
+        </condition>
+        <condition id="STM32">
+            <accept condition="STM32G0" />
+        </condition>
+        <condition id="HO">
+            <require Cclass="HinokiOrangeMCU" Cgroup="Core" />
+        </condition>
+    </conditions>
+
+    <components>
+        <!-- HinokiOrange -->
+        <component Cclass="HinokiOrangeMCU" Cgroup="Core" Cversion="1.0.0" condition="BASE">
+            <description>HinokiOrangeMCU Core</description>
+            <files>
+                <!-- conf -->
+                <file category="preIncludeGlobal" name="support/Keil/conf/ho_support_config_inc.h" />
+                <file category="header" name="Support/Keil/conf/ho_config.h" attr="config" version="1.0.0" />
+                <!-- include -->
+                <file category="include" name="include" />
+                <!-- sources -->
+                <file category="source" name="source/ho_arch.c" />
+                <file category="source" name="source/ho_aw9523b.c" />
+                <file category="source" name="source/ho_button.c" />
+                <file category="source" name="source/ho_cli.c" />
+                <file category="source" name="source/ho_database.c" />
+                <file category="source" name="source/ho_debug.c" />
+                <file category="source" name="source/ho_init.c" />
+                <file category="source" name="source/ho_logic.c" />
+                <file category="source" name="source/ho_meta.c" />
+                <file category="source" name="source/ho_os.c" />
+                <file category="source" name="source/ho_ringbuffer.c" />
+                <file category="source" name="source/ho_routine.c" />
+                <file category="source" name="source/ho_stack_process.c" />
+                <file category="source" name="source/ho_state_machine.c" />
+                <file category="source" name="source/ho_sub_process.c" />
+                <file category="source" name="source/ho_ticker.c" />
+                <file category="source" name="source/ho_time.c" />
+                <file category="source" name="source/ho_uptime.c" />
+                <file category="source" name="source/peripheral/ho_i2c.c" />
+                <file category="source" name="source/ho_logic_led.c" />
+                <file category="source" name="source/ho_encoder.c" />
+                <!-- debug -->
+                <file category="other" name="support/Keil/EventRecorder/EventRecorder.scvd" condition="EVTREC" />
+                <file category="other" name="support/Keil/EventRecorder/Application.scvd" attr="template" version="1.0.0" condition="EVTREC" />
+                <file category="include" name="support/Keil/EventRecorder" condition="EVTREC" />
+                <file category="source" name="support/Keil/EventRecorder/ho_event_recorder.c" condition="EVTREC" />
+                <file category="source" name="support/Keil/EventRecorder/ho_evtrec_init.c" condition="EVTREC" />
+                <!-- STM32 -->
+                <file category="preIncludeGlobal" name="support/STM32/ho_support_inc.h" condition="STM32" />
+                <file category="include" name="support/STM32" condition="STM32" />
+                <file category="source" name="support/STM32/ho_stm32_tick.c" condition="STM32" />
+                <file category="source" name="support/STM32/ho_stm32_uart.c" condition="STM32" />
+                <file category="source" name="support/STM32/ho_stm32_logic.c" condition="STM32" />
+                <file category="source" name="support/STM32/ho_stm32_i2c.c" condition="STM32" />
+                <!-- STM32:G0 -->
+                <file category="preIncludeGlobal" name="support/STM32/ho_stm32_header_g0.h" condition="STM32G0" />
+            </files>
+        </component>
+    </components>
+
+
+</package>

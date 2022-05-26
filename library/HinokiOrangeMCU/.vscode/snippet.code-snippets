@@ -1,0 +1,37 @@
+{
+    "File Header": {
+        "scope": "c,cpp",
+        "prefix": "fh",
+        "body": [
+            "/* SPDX-License-Identifier: MIT */",
+            "$0"
+        ]
+    },
+    "Header Guard": {
+        "scope": "c,cpp",
+        "prefix": "hg",
+        "body": [
+            "#ifndef ___${TM_FILENAME_BASE/(.*)/${1:/upcase}/g}_H___",
+            "#define ___${TM_FILENAME_BASE/(.*)/${1:/upcase}/g}_H___",
+            "",
+            "$0",
+            "",
+            "#endif $BLOCK_COMMENT_START ___${TM_FILENAME_BASE/(.*)/${1:/upcase}/g}_H___ $BLOCK_COMMENT_END",
+        ],
+        "description": "Header Guard for included header"
+    },
+    "Long Comment": {
+        "scope": "c,cpp",
+        "prefix": "/",
+        "body": "/** $1 */$0"
+    },
+    "If not defined": {
+        "scope": "c,cpp",
+        "prefix": "ndef",
+        "body": [
+            "#if !defined(${1/(.*)/${1:/upcase}/g})",
+            "#define ${1/(.*)/${1:/upcase}/g}$0",
+            "#endif /* ${1/(.*)/${1:/upcase}/g} */"
+        ]
+    }
+}
